@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply to PrimeVA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Dark Mode Variables ===== */
+        :root {
+            --primary: #1E293B;
+            --accent: #2ECC71;
+            --text: #E2E8F0;
+            --bg-dark: #0F172A;
+            --bg-card: #1E293B;
+            --border: #334155;
+            --text-muted: #94A3B8;
+        }
+
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        h1, h2 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .file-upload {
+            border: 2px dashed var(--border);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload:hover {
+            border-color: var(--accent);
+        }
+
+        .file-upload i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .checkbox-group, .radio-group {
+            margin: 1rem 0;
+        }
+
+        .checkbox-group label, .radio-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+        }
+
+        .checkbox-group input, .radio-group input {
+            margin-right: 10px;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: #111;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(46, 204, 113, 0.2);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .form-section {
+                padding-bottom: 1.5rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PrimeVA Application Form</h1>
+        <p style="text-align: center; margin-bottom: 2rem;">Please complete all required fields*</p>
+        
+        <form id="applicationForm">
+            <!-- Contact Details -->
+            <div class="form-section">
+                <h2>Contact Details</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name*</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name*</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Primary Phone*</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="altPhone">Alternative Phone</label>
+                        <input type="tel" id="altPhone" name="altPhone">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="facebook">Facebook Profile URL</label>
+                        <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/yourprofile">
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn Profile URL</label>
+                        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Personal Background -->
+            <div class="form-section">
+                <h2>Personal Background</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birthDate">Birth Date*</label>
+                        <input type="date" id="birthDate" name="birthDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sex">Sex*</label>
+                        <select id="sex" name="sex" required>
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="maritalStatus">Marital Status</label>
+                        <select id="maritalStatus" name="maritalStatus">
+                            <option value="">Select</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Separated">Separated</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="province">Province*</label>
+                    <input type="text" id="province" name="province" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Complete Address*</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="education">Highest Educational Attainment*</label>
+                    <select id="education" name="education" required>
+                        <option value="">Select</option>
+                        <option value="High School">High School</option>
+                        <option value="Vocational">Vocational</option>
+                        <option value="College Undergraduate">College Undergraduate</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Master's Degree">Master's Degree</option>
+                        <option value="Doctorate">Doctorate</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="university">College/University Attended</label>
+                        <input type="text" id="university" name="university">
+                    </div>
+                    <div class="form-group">
+                        <label for="degree">Course/Degree</label>
+                        <input type="text" id="degree" name="degree">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Work Background -->
+            <div class="form-section">
+                <h2>Work Background</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="remoteExperience">Years of Remote Work Experience*</label>
+                        <select id="remoteExperience" name="remoteExperience" required>
+                            <option value="">Select</option>
+                            <option value="0">None</option>
+                            <option value="1">1 year</option>
+                            <option value="2">2 years</option>
+                            <option value="3">3 years</option>
+                            <option value="4">4 years</option>
+                            <option value="5+">5+ years</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="currentEmployment">Currently Employed?*</label>
+                        <select id="currentEmployment" name="currentEmployment" required>
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                            <option value="Freelance">Freelance</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="salaryExpectation">Salary Expectation (Monthly in USD)*</label>
+                    <input type="number" id="salaryExpectation" name="salaryExpectation" min="0" step="50" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Availability (PH Time)*</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="availability[]" value="Morning"> Morning (8AM-12PM)</label>
+                        <label><input type="checkbox" name="availability[]" value="Afternoon"> Afternoon (1PM-5PM)</label>
+                        <label><input type="checkbox" name="availability[]" value="Evening"> Evening (6PM-10PM)</label>
+                        <label><input type="checkbox" name="availability[]" value="Late Night"> Late Night (11PM-3AM)</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Willing to work on weekends?*</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="weekendWork" value="Yes" required> Yes</label>
+                        <label><input type="radio" name="weekendWork" value="No"> No</label>
+                        <label><input type="radio" name="weekendWork" value="Sometimes"> Sometimes</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills -->
+            <div class="form-section">
+                <h2>Skills & Tools</h2>
+                
+                <div class="form-group">
+                    <label for="skills">Primary Skills*</label>
+                    <textarea id="skills" name="skills" required placeholder="List your top skills separated by commas (e.g., Customer Service, Graphic Design, Data Entry)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tools">Tools/Apps/Software Proficiency*</label>
+                    <textarea id="tools" name="tools" required placeholder="List software you're proficient in (e.g., Photoshop, Excel, Zendesk)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="referralSource">How did you hear about us?*</label>
+                    <select id="referralSource" name="referralSource" required>
+                        <option value="">Select</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="LinkedIn">LinkedIn</option>
+                        <option value="Job Board">Job Board</option>
+                        <option value="Friend/Referral">Friend/Referral</option>
+                        <option value="Google Search">Google Search</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="referredBy">Referred By (if applicable)</label>
+                    <input type="text" id="referredBy" name="referredBy" placeholder="Name of referrer">
+                </div>
+            </div>
+            
+            <!-- Requirements -->
+            <div class="form-section">
+                <h2>Application Requirements</h2>
+                
+                <div class="form-group">
+                    <label for="position">Position Applying For*</label>
+                    <select id="position" name="position" required>
+                        <option value="">Select</option>
+                        <option value="Virtual Assistant">Virtual Assistant</option>
+                        <option value="Customer Support">Customer Support</option>
+                        <option value="Social Media Manager">Social Media Manager</option>
+                        <option value="Graphic Designer">Graphic Designer</option>
+                        <option value="Bookkeeper">Bookkeeper</option>
+                        <option value="IT Support">IT Support</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Profile Photo*</label>
+                    <div class="file-upload" id="photoUpload">
+                        <i class="fas fa-camera"></i>
+                        <p>Upload your professional photo</p>
+                        <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" required style="display: none;">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="coverLetter">Cover Letter*</label>
+                    <textarea id="coverLetter" name="coverLetter" required placeholder="Tell us why you're the perfect candidate"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>CV/Resume (PDF only)*</label>
+                    <div class="file-upload" id="resumeUpload">
+                        <i class="fas fa-file-pdf"></i>
+                        <p>Upload your resume (PDF)</p>
+                        <input type="file" id="resume" name="resume" accept=".pdf" required style="display: none;">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Portfolio/Sample Work</label>
+                    <div class="file-upload" id="portfolioUpload">
+                        <i class="fas fa-folder-open"></i>
+                        <p>Upload files or provide link below</p>
+                        <input type="file" id="portfolio" name="portfolio" multiple style="display: none;">
+                    </div>
+                    <input type="url" id="portfolioLink" name="portfolioLink" placeholder="Portfolio URL (if applicable)" style="margin-top: 1rem;">
+                </div>
+                
+                <div class="form-group">
+                    <label>Video Introduction (2-3 minutes)*</label>
+                    <div class="file-upload" id="videoUpload">
+                        <i class="fas fa-video"></i>
+                        <p>Upload video or provide YouTube link</p>
+                        <input type="file" id="video" name="video" accept="video/*" style="display: none;">
+                    </div>
+                    <input type="url" id="videoLink" name="videoLink" placeholder="YouTube/Vimeo URL (if not uploading)" style="margin-top: 1rem;">
+                </div>
+            </div>
+            
+            <!-- Final Submission -->
+            <div class="form-group" style="margin-top: 3rem;">
+                <label style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" required style="margin-right: 10px; margin-top: 3px;">
+                    <span>I certify that all information provided is accurate and complete. I understand that false statements may disqualify me from consideration.*</span>
+                </label>
+            </div>
+            
+            <button type="submit" class="btn">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        // Enhanced file upload interaction
+        document.querySelectorAll('.file-upload').forEach(uploadDiv => {
+            const fileInput = uploadDiv.querySelector('input[type="file"]');
+            
+            uploadDiv.addEventListener('click', () => {
+                fileInput.click();
+            });
+            
+            fileInput.addEventListener('change', (e) => {
+                if (fileInput.files.length > 0) {
+                    const fileNames = Array.from(fileInput.files).map(file => file.name).join(', ');
+                    uploadDiv.innerHTML = `
+                        <i class="fas fa-check-circle"></i>
+                        <p>${fileInput.files.length} file(s) selected</p>
+                        <small>${fileNames.length > 30 ? fileNames.substring(0,30)+'...' : fileNames}</small>
+                    `;
+                }
+            });
+            
+            // Allow drag and drop
+            uploadDiv.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadDiv.style.borderColor = 'var(--accent)';
+                uploadDiv.style.backgroundColor = 'rgba(46, 204, 113, 0.1)';
+            });
+            
+            uploadDiv.addEventListener('dragleave', () => {
+                uploadDiv.style.borderColor = 'var(--border)';
+                uploadDiv.style.backgroundColor = 'transparent';
+            });
+            
+            uploadDiv.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadDiv.style.borderColor = 'var(--border)';
+                uploadDiv.style.backgroundColor = 'transparent';
+                fileInput.files = e.dataTransfer.files;
+                const event = new Event('change');
+                fileInput.dispatchEvent(event);
+            });
+        });
+    </script>
+</body>
+</html>
